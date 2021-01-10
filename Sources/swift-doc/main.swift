@@ -1,7 +1,8 @@
-import ArgumentParser
+// import ArgumentParser
 import Foundation
 import Logging
 import LoggingGitHubActions
+import SwiftDocCLI
 
 LoggingSystem.bootstrap { label in
     if ProcessInfo.processInfo.environment["GITHUB_ACTIONS"] == "true" {
@@ -11,20 +12,20 @@ LoggingSystem.bootstrap { label in
     }
 }
 
-let logger = Logger(label: "org.swiftdoc.swift-doc")
+// let logger = Logger(label: "org.swiftdoc.swift-doc")
 
-let fileManager = FileManager.default
+// let fileManager = FileManager.default
 
-var standardOutput = FileHandle.standardOutput
-var standardError = FileHandle.standardError
+// var standardOutput = FileHandle.standardOutput
+// var standardError = FileHandle.standardError
 
-struct SwiftDoc: ParsableCommand {
-    static var configuration = CommandConfiguration(
-        commandName: "swift doc",
-        abstract: "A utility for generating documentation for Swift code.",
-        version: "1.0.0-beta.5",
-        subcommands: [Generate.self, Coverage.self, Diagram.self]
-    )
-}
+// struct SwiftDoc: ParsableCommand {
+//     static var configuration = CommandConfiguration(
+//         commandName: "swift doc",
+//         abstract: "A utility for generating documentation for Swift code.",
+//         version: "1.0.0-beta.5",
+//         subcommands: [Generate.self, Coverage.self, Diagram.self]
+//     )
+// }
 
 SwiftDoc.main()

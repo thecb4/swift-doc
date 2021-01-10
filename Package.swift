@@ -10,7 +10,8 @@ let package = Package(
     ],
     products: [
         .executable(name: "swift-doc", targets: ["swift-doc"]),
-        .library(name: "SwiftDoc", targets: ["SwiftDoc"])
+        .library(name: "SwiftDoc", targets: ["SwiftDoc"]),
+        .library(name: "SwiftDocCLI", targets: ["SwiftDocCLI"])
     ],
     dependencies: [
         .package(name: "SwiftSyntax", url: "https://github.com/apple/swift-syntax.git", .exact("0.50300.0")),
@@ -30,6 +31,24 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "swift-doc",
+            dependencies: [
+                .target(name: "SwiftDocCLI")
+                // .target(name: "SwiftDoc"),
+                // .target(name: "DCOV"),
+                // .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                // .product(name: "SwiftSemantics", package: "SwiftSemantics"),
+                // .product(name: "SwiftMarkup", package: "SwiftMarkup"),
+                // .product(name: "CommonMarkBuilder", package: "CommonMark"),
+                // .product(name: "HypertextLiteral", package: "HypertextLiteral"),
+                // .product(name: "Markup", package: "Markup"),
+                // .product(name: "GraphViz", package: "GraphViz"),
+                // .product(name: "SwiftSyntaxHighlighter", package: "SwiftSyntaxHighlighter"),
+                // .product(name: "Logging", package: "swift-log"),
+                // .product(name: "LoggingGitHubActions", package: "LoggingGitHubActions")
+            ]
+        ),
+        .target(
+            name: "SwiftDocCLI",
             dependencies: [
                 .target(name: "SwiftDoc"),
                 .target(name: "DCOV"),
