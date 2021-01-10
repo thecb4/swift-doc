@@ -6,7 +6,7 @@ import struct SwiftSemantics.Protocol
 import CommonMark
 import HypertextLiteral
 
-protocol Page: HypertextLiteralConvertible {
+public protocol Page: HypertextLiteralConvertible {
     var module: Module { get }
     var baseURL: String { get }
     var title: String { get }
