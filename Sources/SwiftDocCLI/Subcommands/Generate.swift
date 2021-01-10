@@ -10,11 +10,13 @@ import FoundationNetworking
 #endif
 
 extension SwiftDoc {
-  struct Generate: ParsableCommand {
-    enum Format: String, ExpressibleByArgument {
+  public struct Generate: ParsableCommand {
+    public enum Format: String, ExpressibleByArgument {
       case commonmark
       case html
     }
+
+    public init() {}
 
     struct Options: ParsableArguments {
       @Argument(help: "One or more paths to Swift files")
@@ -37,12 +39,12 @@ extension SwiftDoc {
       var baseURL: String = "/"
     }
 
-    static var configuration = CommandConfiguration(abstract: "Generates Swift documentation")
+    public static var configuration = CommandConfiguration(abstract: "Generates Swift documentation")
 
     @OptionGroup()
     var options: Options
 
-    func run() throws {
+    public func run() throws {
       let module = try Module(name: options.moduleName, paths: options.inputs)
       let baseURL = options.baseURL
 

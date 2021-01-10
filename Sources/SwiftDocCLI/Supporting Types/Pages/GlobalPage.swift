@@ -4,10 +4,10 @@ import CommonMarkBuilder
 import HypertextLiteral
 
 public struct GlobalPage: Page {
-    let module: Module
+    public let module: Module
     let name: String
     let symbols: [Symbol]
-    let baseURL: String
+    public let baseURL: String
 
     public init(module: Module, name: String, symbols: [Symbol], baseURL: String) {
         self.module = module
@@ -18,11 +18,11 @@ public struct GlobalPage: Page {
 
     // MARK: - Page
 
-    var title: String {
+    public var title: String {
         return name
     }
     
-    var document: CommonMark.Document {
+    public var document: CommonMark.Document {
         return Document {
             ForEach(in: symbols) { symbol in
                 Heading { symbol.id.description }
@@ -31,7 +31,7 @@ public struct GlobalPage: Page {
         }
     }
 
-    var html: HypertextLiteral.HTML {
+    public var html: HypertextLiteral.HTML {
         let description: String
 
         let descriptions = Set(symbols.map { String(describing: type(of: $0.api)) })

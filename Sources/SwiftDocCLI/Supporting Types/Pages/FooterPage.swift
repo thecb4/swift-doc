@@ -18,7 +18,7 @@ fileprivate let timestampDateFormatter: DateFormatter = {
 fileprivate let href = "https://github.com/SwiftDocOrg/swift-doc"
 
 public struct FooterPage: Page {
-    let baseURL: String
+    public let baseURL: String
 
     public init(baseURL: String) {
         self.baseURL = baseURL
@@ -26,7 +26,7 @@ public struct FooterPage: Page {
 
     // MARK: - Page
 
-    var document: CommonMark.Document {
+    public var document: CommonMark.Document {
         let timestamp = timestampDateFormatter.string(from: Date())
 
         return Document {
@@ -36,7 +36,7 @@ public struct FooterPage: Page {
         }
     }
 
-    var html: HypertextLiteral.HTML {
+    public var html: HypertextLiteral.HTML {
         let timestamp = timestampDateFormatter.string(from: Date())
         let dateString = dateFormatter.string(from: Date())
 

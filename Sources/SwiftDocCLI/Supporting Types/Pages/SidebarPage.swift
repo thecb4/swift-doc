@@ -4,8 +4,8 @@ import CommonMarkBuilder
 import HypertextLiteral
 
 public struct SidebarPage: Page {
-    var module: Module
-    let baseURL: String
+    public var module: Module
+    public let baseURL: String
 
     var typeNames: Set<String> = []
     var protocolNames: Set<String> = []
@@ -46,7 +46,7 @@ public struct SidebarPage: Page {
 
     // MARK: - Page
 
-    var document: CommonMark.Document {
+    public var document: CommonMark.Document {
         return Document {
             ForEach(in: (
                 [
@@ -75,7 +75,7 @@ public struct SidebarPage: Page {
         }
     }
 
-    var html: HypertextLiteral.HTML {
+    public var html: HypertextLiteral.HTML {
         #"""
         \#(document)
         """#

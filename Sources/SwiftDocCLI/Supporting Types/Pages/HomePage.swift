@@ -4,8 +4,8 @@ import SwiftSemantics
 import HypertextLiteral
 
 public struct HomePage: Page {
-    var module: Module
-    let baseURL: String
+    public var module: Module
+    public let baseURL: String
 
     var classes: [Symbol] = []
     var enumerations: [Symbol] = []
@@ -48,11 +48,11 @@ public struct HomePage: Page {
 
     // MARK: - Page
 
-    var title: String {
+    public var title: String {
         return module.name
     }
 
-    var document: CommonMark.Document {
+    public var document: CommonMark.Document {
         return Document {
             ForEach(in: [
                 ("Types", classes + enumerations + structures),
@@ -73,7 +73,7 @@ public struct HomePage: Page {
         }
     }
 
-    var html: HypertextLiteral.HTML {
+    public var html: HypertextLiteral.HTML {
         return #"""
         \#([
             ("Classes", classes),

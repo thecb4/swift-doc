@@ -15,12 +15,12 @@ public protocol Page: HypertextLiteralConvertible {
 }
 
 extension Page {
-    var module: Module { fatalError("unimplemented") }
-    var title: String { fatalError("unimplemented") }
+    public var module: Module { fatalError("unimplemented") }
+    public var title: String { fatalError("unimplemented") }
 }
 
 extension Page {
-    func write(to url: URL, format: SwiftDoc.Generate.Format) throws {
+    public func write(to url: URL, format: SwiftDoc.Generate.Format) throws {
         let data: Data?
         switch format {
         case .commonmark:
@@ -35,7 +35,7 @@ extension Page {
     }
 }
 
-func writeFile(_ data: Data, to url: URL) throws {
+public func writeFile(_ data: Data, to url: URL) throws {
     let fileManager = FileManager.default
     try fileManager.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
     try data.write(to: url)

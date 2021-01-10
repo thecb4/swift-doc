@@ -4,9 +4,9 @@ import CommonMarkBuilder
 import HypertextLiteral
 
 public struct TypealiasPage: Page {
-    let module: Module
+    public let module: Module
     let symbol: Symbol
-    let baseURL: String
+    public let baseURL: String
 
     public init(module: Module, symbol: Symbol, baseURL: String) {
         precondition(symbol.api is Typealias)
@@ -17,18 +17,18 @@ public struct TypealiasPage: Page {
 
     // MARK: - Page
 
-    var title: String {
+    public var title: String {
         return symbol.id.description
     }
 
-    var document: CommonMark.Document {
+    public var document: CommonMark.Document {
         Document {
             Heading { symbol.id.description }
             Documentation(for: symbol, in: module, baseURL: baseURL)
         }
     }
 
-    var html: HypertextLiteral.HTML {
+    public var html: HypertextLiteral.HTML {
         #"""
         <h1>
             <small>\#(String(describing: type(of: symbol.api)))</small>
