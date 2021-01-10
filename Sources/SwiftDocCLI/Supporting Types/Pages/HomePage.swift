@@ -3,7 +3,7 @@ import SwiftDoc
 import SwiftSemantics
 import HypertextLiteral
 
-struct HomePage: Page {
+public struct HomePage: Page {
     var module: Module
     let baseURL: String
 
@@ -16,7 +16,7 @@ struct HomePage: Page {
     var globalFunctions: [Symbol] = []
     var globalVariables: [Symbol] = []
 
-    init(module: Module, baseURL: String) {
+    public init(module: Module, baseURL: String) {
         self.module = module
         self.baseURL = baseURL
 

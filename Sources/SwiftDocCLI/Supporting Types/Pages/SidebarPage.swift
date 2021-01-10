@@ -3,7 +3,7 @@ import SwiftDoc
 import CommonMarkBuilder
 import HypertextLiteral
 
-struct SidebarPage: Page {
+public struct SidebarPage: Page {
     var module: Module
     let baseURL: String
 
@@ -14,7 +14,7 @@ struct SidebarPage: Page {
     var globalFunctionNames: Set<String> = []
     var globalVariableNames: Set<String> = []
 
-    init(module: Module, baseURL: String) {
+    public init(module: Module, baseURL: String) {
         self.module = module
         self.baseURL = baseURL
 

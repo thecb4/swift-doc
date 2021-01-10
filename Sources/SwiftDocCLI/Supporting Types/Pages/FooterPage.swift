@@ -17,10 +17,10 @@ fileprivate let timestampDateFormatter: DateFormatter = {
 
 fileprivate let href = "https://github.com/SwiftDocOrg/swift-doc"
 
-struct FooterPage: Page {
+public struct FooterPage: Page {
     let baseURL: String
 
-    init(baseURL: String) {
+    public init(baseURL: String) {
         self.baseURL = baseURL
     }
 

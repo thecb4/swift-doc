@@ -3,12 +3,12 @@ import SwiftDoc
 import CommonMarkBuilder
 import HypertextLiteral
 
-struct TypePage: Page {
+public struct TypePage: Page {
     let module: Module
     let symbol: Symbol
     let baseURL: String
 
-    init(module: Module, symbol: Symbol, baseURL: String) {
+    public init(module: Module, symbol: Symbol, baseURL: String) {
         precondition(symbol.api is Type)
         self.module = module
         self.symbol = symbol

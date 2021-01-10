@@ -3,13 +3,13 @@ import SwiftDoc
 import CommonMarkBuilder
 import HypertextLiteral
 
-struct GlobalPage: Page {
+public struct GlobalPage: Page {
     let module: Module
     let name: String
     let symbols: [Symbol]
     let baseURL: String
 
-    init(module: Module, name: String, symbols: [Symbol], baseURL: String) {
+    public init(module: Module, name: String, symbols: [Symbol], baseURL: String) {
         self.module = module
         self.name = name
         self.symbols = symbols
